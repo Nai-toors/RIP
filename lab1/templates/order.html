@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Заказ №{{ data.id }}{% endblock %}
+
+{% block content %}
+        <div class="order-text">Информация о странице № {{ data.id }} </div>
+    <div> {{ data.info }}</div>
+    <img src="{% static data.url %}" WIDTH="65%"> </img>
+{% endblock %}
