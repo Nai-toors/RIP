@@ -1,11 +1,21 @@
+{#view "вид", то, что видно пользователю#}
+{#вторая страница#}
+
 {% extends 'base.html' %}
 
 {% load static %}
 
-{% block title %} Заказ №{{ data.id }}{% endblock %}
+{% block title %} Заказ №{{ data.title.id }}{% endblock %}
 
 {% block content %}
-        <div class="order-text">Информация о странице № {{ data.id }} </div>
-    <div> {{ data.info }}</div>
+{#    <ul>#}
+{#    {% for order in data.title %}#}
+{#        <li>Стоимость автомобиля {{ order.cost }} </li>#}
+{#    {% empty %}#}
+{#        <li>Список пуст</li>#}
+{#    {% endfor %}#}
+{#</ul>#}
+        <div class="order-text">стоимость автомобиля: {{ data.title.Cost}} </div>
+{#    <div> {{ data.info }}</div>#}
     <img src="{% static data.url %}" WIDTH="65%"> </img>
 {% endblock %}

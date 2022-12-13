@@ -1,11 +1,19 @@
+{#view "вид", то, что видно пользователю#}
+{#первая, приветственная страница, выбор между#}
+
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Список страниц{% endblock %}
 
 {% block content %}
 <ul>
-    {% for order in data.orders %}
-        {% include 'order_element.html' with element=order %}
+    {% for order in data.info %}
+        {% include 'order_element.html' with order=order %}
+                <form action="{% url 'send_delete' order.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="submit" value="Удалить">
+        </form>
     {% empty %}
         <li>Список пуст</li>
     {% endfor %}

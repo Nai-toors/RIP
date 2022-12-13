@@ -13,12 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+# Controller, управление, отвечает за путь перехода по веб-приложению
+
 from django.contrib import admin
 from django.urls import path
-
-print(5)
-
-
 from lab1_app import views
 
 '''urlpatterns = [
@@ -28,6 +27,7 @@ from lab1_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.GetMainPath),
+    path('', views.MainPath),
     path('info/<int:id>/', views.GetOrder, name='info_urls'),
+    path('send_delete/<int:id>', views.send_delete, name='send_delete'),
 ]
